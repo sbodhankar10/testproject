@@ -1,0 +1,44 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <img src="../../assets/5dlight.png"  class="d-flex align-top img-fluid justify-content-center" alt="" style="margin: 20px auto 60px;">
+
+   <mat-accordion class="listmoments">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header  class="specific-class">
+        <mat-panel-title>
+         Moments
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <a routerLink="list-moment" class="listname"><li>Moment List</li></a>
+      <a routerLink="add-moment" class="listname"> <li> Add new moment</li></a>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>sort</mat-icon>
+      </button>
+      <span class="toolbar-spacer"></span>
+      <span ><img src="../../assets/userpic.png" style="border-radius: 50%;width: 50px;"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="userLogout();">
+        <mat-icon>login</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+    </mat-toolbar>
+
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

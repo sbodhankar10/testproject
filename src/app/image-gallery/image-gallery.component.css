@@ -1,0 +1,33 @@
+mat-sidenav {
+  width: 280px;
+  padding:15px 0;
+}
+.mat-drawer {
+  background-color: #023075;
+  color:#fff
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar.mat-primary {
+  background: white;
+  color: black;
+}
+.mat-drawer {
+  background: white;
+  color: black;
+}
+.mat-expansion-panel-header-title,::ng-deep .specific-class > .mat-expansion-indicator:after {
+  color: white;
+}
+.mat-expansion-panel-header,.mat-expansion-panel-header:hover {
+  background-color: #001B30 !important;font-size: 18px;
+  font-family: 'Maven Pro';font-weight: 700;height: 50px !important;
+}
+
+.listname{font-family: 'Maven Pro';font-weight: 500;font-size: 16px;line-height:
+  18.8px;color:#001B30;  padding-top: 20px;  display: block;
+}
+
+.mat-accordion>.mat-expansion-panel-spacing{ border-radius: 0 !important;   box-shadow: none;}

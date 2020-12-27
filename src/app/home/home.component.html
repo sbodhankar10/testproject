@@ -1,0 +1,79 @@
+<div class="container-fluid  p-0">
+  <nav class="navbar navbar-light pt-4 pb-4" style="background-color:  #001B30;">
+    <a class="navbar-brand mr-auto ml-auto" href="#">
+      <img src="../../assets/logo.png"  class="d-inline-block align-top img-fluid" alt="">
+      <span class="d-block" style="color:#fff;"><img src="../../assets/solution.png"  class="d-inline-block align-top img-fluid" alt=""></span>
+    </a>
+
+  </nav>
+  <section class="bg-img">
+    <form [formGroup]="signUpForm" autocomplete="off">
+      <mat-card class="example-card container">
+
+        <mat-card-header class="justify-content-center">
+          <mat-card-title><h2>Sign Up</h2></mat-card-title>
+          <mat-card-subtitle><p>To be a member</p></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="d-flex justify-content-center flex-wrap">
+
+          <mat-form-field class="example-full-width mr-5">
+            <label class="filedlbl">First name</label>
+            <span matPrefix class="material-icons">perm_identity</span>
+
+            <input matInput  maxlength="50" formControlName="firstname">
+            <mat-error *ngIf="signUpForm.controls['firstname']?.errors?.required">First name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width ml-5">
+            <label class="filedlbl">Last name</label>
+            <span matPrefix class="material-icons">perm_identity</span>
+            <input matInput  maxlength="50" formControlName="lastname">
+            <mat-error *ngIf="signUpForm.controls['lastname']?.errors?.required">Last name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mr-5">
+            <label class="filedlbl" style="left: -66px;">Mobile No.</label>
+
+            <span matPrefix><img src="../../assets/flag.png"> +91 &nbsp;</span>
+            <input type="tel" matInput  maxlength="10" minlength="10" formControlName="mobileno">
+
+            <mat-error *ngIf="signUpForm.controls['mobileno']?.errors?.required">Mobile number is required</mat-error>
+            <mat-error *ngIf="signUpForm.controls['mobileno']?.errors?.pattern || signUpForm.controls['mobileno']?.errors?.minlength">Please enter valid mobile number</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width ml-5">
+            <label class="filedlbl">Email-ID</label>
+            <span matPrefix class="material-icons"> mail_outline</span>
+            <input matInput type="email"  maxlength="100" formControlName="email">
+            <mat-error *ngIf="signUpForm.controls['email']?.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="signUpForm.controls['email']?.errors?.email">Please enter valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mr-5">
+
+            <input matInput placeholder="City" formControlName="city" maxlength="50">
+            <mat-error *ngIf="signUpForm.controls['city']?.errors?.required">City is required</mat-error>
+          </mat-form-field>
+
+
+
+          <mat-form-field class="example-full-width ml-5">
+            <label class="filedlbl">Enter Password</label>
+            <span matPrefix class="material-icons">lock</span>
+            <input matInput [type]="hide ? 'password' : 'text'"  minlength="8" maxlength="20" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="signUpForm.controls['password']?.errors?.required">Password is required</mat-error>
+          </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-center">
+          <button mat-raised-button color="primary" class="submitbtn"  (click)="addNewUser(signUpForm.value)" [disabled]="signUpForm.invalid || signUpForm.pending">Submit</button>
+        </mat-card-actions>
+        <span class="d-flex justify-content-center signin">Already a member? &nbsp;<a routerLink="login" style="color:#000000;">Sign In</a></span>
+      </mat-card>
+
+    </form>
+  </section>
+</div>

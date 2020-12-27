@@ -1,0 +1,70 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{titleLine}}</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="imgUploadForm" autocomplete="off" style="margin: 0 auto; text-align: center;">
+  <mat-card-content>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <textarea matInput #title formControlName="title" minlength="5" maxlength="100"></textarea>
+      <mat-error *ngIf="imgUploadForm.controls['title']?.errors?.required">Title is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+     <input matInput placeholder="Enter tag" maxlength="50" formControlName="tag">
+    </mat-form-field>
+
+    <div class="row" *ngIf="dataId" >
+      <div class="col-sm-2 card" style="padding:0;margin-left: 20px;" *ngFor="let file of fileArray">
+          <img height="150px;" width="150px;" src="http://localhost:3000/{{file}}">
+      </div>
+    </div>
+
+    <div class="m-2"></div>
+    <div class="row" style="justify-content: center;">
+          <div class="col-sm-5">
+
+            <div class="card mt-3 file-list" *ngIf="addfiles.length >0">
+                <div class="card-header">File List</div>
+                <ul class="list-group list-group-flush">
+                    <ng-container *ngFor="let item of addfiles">
+                        <li class="list-group-item">{{item['name']}}</li>
+                    </ng-container>
+                </ul>
+            </div>
+            <div class="mt-2" *ngIf="upload.progress > 0 && upload.progress != 100">
+              <div class="progress" style="height: 20px;margin-bottom:20px;">
+                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width.%]="upload.progress" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{upload.progress}}%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+          <div
+              class="droparea"
+              (dragover)="onDragOver($event)"
+              (drop)="onDrop($event)"
+              (dragleave)="onDragLeave($event)"
+              [class.active]="isActive"
+          >
+              <input type="file" name="userfiles" class="browse-file" (change)="onSelectedFile($event)" multiple/>
+              <img src="../../../assets/upload.png"><h4>Drag and drop file <br /><b>OR</b>  <br/></h4>
+              <button class="browsebtn">Browse</button>
+          </div>
+
+      </div>
+
+
+    </div>
+
+
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!dataId" mat-raised-button color="primary" class="submitbtn" (click)="addTogallery();" [disabled]="imgUploadForm.invalid || imgUploadForm.pending || !isFileok">Submit</button>
+    <button *ngIf="dataId" mat-raised-button color="primary" class="submitbtn" (click)="updateGallery();">Update</button>
+  </mat-card-actions>
+  </form>
+</mat-card>
+

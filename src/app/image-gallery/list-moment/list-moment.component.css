@@ -1,0 +1,23 @@
+
+.main-content {
+  padding:20px;
+}
+table {
+  width: 100%;
+  font-family: 'Maven Pro';font-weight: normal;
+}
+table th{
+  font-family: 'Maven Pro';font-weight: 500;    font-size: 20px;color:#001B30;
+}
+table td{
+  font-family: 'Maven Pro';font-weight: normal;    font-size: 18px;line-height: 21px;color: #001B30;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 22%;
+}
+.mat-icon-button.mat-warn,.mat-icon-button.mat-primary{color: #001B30;}

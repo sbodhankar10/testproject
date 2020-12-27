@@ -1,0 +1,48 @@
+<div class="container-fluid p-0">
+  <nav class="navbar navbar-light" style="background-color: #001B30;">
+    <a class="navbar-brand mr-auto ml-auto" href="#">
+      <img src="../../assets/logo.png"  class="d-inline-block align-top img-fluid" alt="">
+      <span class="d-block" style="color:#fff;"><img src="../../assets/solution.png"  class="d-inline-block align-top img-fluid" alt=""></span>
+    </a>
+
+  </nav>
+  <section class="bg-img">
+    <form [formGroup]="loginForm" autocomplete="off">
+      <mat-card class="example-card container">
+
+        <mat-card-header class="justify-content-center">
+          <mat-card-title><h2>Sign In</h2></mat-card-title>
+          <mat-card-subtitle><p>To start using the app</p></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="d-flex justify-content-center flex-wrap">
+
+          <mat-form-field class="example-full-width">
+            <label class="filedlbl">Email-ID</label>
+            <span matPrefix class="material-icons"> mail_outline</span>
+            <input matInput type="email"  maxlength="100" formControlName="email">
+            <mat-error *ngIf="loginForm.controls['email']?.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="loginForm.controls['email']?.errors?.email">Please enter valid email</mat-error>
+          </mat-form-field>
+
+          <div class="col-md-12"></div>
+          <mat-form-field class="example-full-width">
+            <label class="filedlbl">Enter Password</label>
+            <span matPrefix class="material-icons">lock</span>
+            <input matInput [type]="hide ? 'password' : 'text'"  minlength="8" maxlength="20" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls['password']?.errors?.required">Password is required</mat-error>
+          </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-center">
+          <button mat-raised-button color="primary" class="submitbtn"  (click)="loginUser(loginForm.value)" [disabled]="loginForm.invalid || loginForm.pending">Submit</button>
+        </mat-card-actions>
+        <span class="d-flex justify-content-center">Not a member? &nbsp;<a routerLink="" style="color:#000000;">Sign Up</a></span>
+      </mat-card>
+
+    </form>
+  </section>
+</div>
+

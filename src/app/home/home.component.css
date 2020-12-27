@@ -1,0 +1,32 @@
+.example-full-width {
+  width: 40%;
+  padding: 5px;
+  margin-top: 10px;
+}
+.submitbtn{
+  border-radius: 25px;
+  width:184px;
+  height: 50px;
+  font-size: 20px;
+  background-color:   #001B30;
+  font-family: 'Maven Pro';font-weight: bold;line-height:
+  23.5px;
+}
+.bg-img{
+  background-image: url('../../assets/Rectanglesign.png');
+  background-repeat: no-repeat;background-color: #001B30;
+
+}
+
+.mat-card-content{margin-top: 25px;}
+.mat-card{font-family: 'Maven Pro';font-weight: bold;box-shadow: none;}
+.mat-card-title h2{font-family: 'Maven Pro';font-weight: bold;font-size: 40px;line-height: 47px;color:#001B30;}
+.mat-card-subtitle p{font-family: 'Maven Pro';font-weight: normal;font-size: 20px;line-height:
+  23.5px;color:#001B30;}
+.signin{font-family: 'Maven Pro';font-weight: 500;font-size: 18px;line-height: 31.24px;color:#545454;}
+.filedlbl{position: absolute;left: -22px;top: -27px;font-weight: 500;line-height: 17.63px;font-family: 'Maven Pro';}
+.mat-input-element{font-family: 'Maven Pro';font-weight: normal;font-size: 15px;line-height:17.63px;color:#1A1A1A;margin-bottom: 5px;margin-left: 5px;}
+@media (max-width: 480px) {
+  .ml-5{margin-left: 0!important;    width: 100%;}
+  .mr-5{margin-right: 0!important;    width: 100%;}
+}

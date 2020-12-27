@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Maven Pro';font-weight: normal; }
+@font-face {
+  font-family: 'Maven Pro';
+  src: url('assets/fonts/MavenPro-Bold.woff2') format('woff2'),
+      url('assets/fonts/MavenPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  src: url('assets/fonts/MavenPro-Medium.woff2') format('woff2'),
+      url('assets/fonts/MavenPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Maven Pro';
+  src: url('assets/fonts/MavenPro-Regular.woff2') format('woff2'),
+      url('assets/fonts/MavenPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.mat-card{font-family: 'Maven Pro';font-weight: bold;box-shadow: none;}
+button:focus{ outline: none;}
